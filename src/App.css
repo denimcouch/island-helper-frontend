@@ -187,3 +187,21 @@
 .section.green {
   color: #10997f;
 }
+
+#display-container{
+  height: 100%;
+}
+
+#user-sidebar {
+  width: 30%;
+  overflow-x: hidden;
+  z-index: 1;
+  justify-content: left;
+  position: fixed;
+}
+
+#card-container {
+  width: 65%;
+  margin-left: 35%;
+  justify-content: left;
+}

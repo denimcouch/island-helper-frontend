@@ -1,10 +1,13 @@
 import React from 'react'
+import UserSideBar from './UserSideBar'
+import CardContainer from './CardContainer'
 
 const DisplayContainer = (props) => {
 
     return (
-        <div className="title friend">
-            <h1 className="acnh-text">Island Manager</h1>
+        <div id="display-container" className="title friend">
+            <UserSideBar />
+            <CardContainer />
         </div>
     )
 }
