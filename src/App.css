@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .App {
   text-align: center;
 }
@@ -36,3 +39,101 @@
     transform: rotate(360deg);
   }
 }
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  background-color: #FFE0AF;
+  background-image:
+  linear-gradient(45deg, #FFDD88 25%, transparent 25%, transparent 75%, #FFDD88 75%, #FFDD88), 
+  linear-gradient(45deg, #FFDD88 25%, transparent 25%, transparent 75%, #FFDD88 75%, #FFDD88),
+  linear-gradient(45deg, transparent, transparent 50%, #FFC87F 50%, #FFC87F);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px, 50px 0px;
+  -webkit-animation: scroll 5s linear infinite;
+}
+
+@-webkit-keyframes scroll {
+  from { background-position: 0 0, 50px 50px, 50px 0; }
+  to { background-position: -100px -100px, -50px -50px, -50px -100px; }
+}
+
+.acnh-text{
+  font-family: Nunito;
+}
+.acnh-btn{
+  line-height: 22px;
+}
+.acnh-label{
+  line-height: 18px;
+}
+.acnh-btn, .acnh-label{
+  color: white;
+  background-color: rgb(29, 182, 175);
+  padding: .5rem;
+  border: rgb(29, 182, 175) solid .3rem;;
+  border-radius: 3rem;
+  text-align: center;
+  font-family: Nunito,Helvetica Rounded,Arial,sans-serif;
+  font-size: 16px;
+}
+.acnh-btn:focus, .acnh-btn:hover, .acnh-btn-focus {
+  outline: none;
+  border: rgb(63, 223, 205) solid .3rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(29, 182, 175),
+    rgb(29, 182, 175) 20px,
+    rgb(21, 151, 139) 20px,
+    rgb(21, 151, 139) 40px
+  );
+  background-size:56px 56px;
+  background-position-x:0%;
+  -webkit-animation:'slide' 200s infinite linear forwards;
+}
+.acnh-btn-no-focus:focus, .acnh-btn-no-focus:hover {
+  outline: none;
+  border: rgb(63, 223, 205) solid .3rem;
+  -webkit-animation: none!important;
+}
+.acnh-label-pink{
+  background: rgb(236,153, 158)!important;
+  border: rgb(236,153, 158) solid .3rem!important;
+  color: white!important;
+  display: inline-block;
+  align-items: center;
+}
+.acnh-label-menu{
+  background: rgb(240, 250, 221)!important;
+  border: rgb(240, 250, 221) solid .3rem!important;
+  color: rgb(118, 104, 84)!important;
+  display: inline-block;
+  align-items: center;
+}
+.acnh-icon{
+  padding: .1rem;
+  margin-right: .1rem;
+  height:16px;
+  line-height: 16px;
+  width: 16px;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 50%;
+}
+.acnh-btn>.acnh-icon{
+  color: rgb(29, 182, 175);
+  background-color: white;
+}
+.acnh-label-menu>.acnh-icon{
+  background-color: rgb(118, 104, 84);
+  color: rgb(240, 250, 221);
+}
+.acnh-label-pink>.acnh-icon{
+  background-color: white;
+  color: rgb(236,153, 158);
+}
+
