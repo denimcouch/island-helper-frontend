@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import DisplayContainer from './DisplayContainer'
+
+
+
 
 const villagersURL = 'http://localhost:3000/villagers'
 const fishURL = 'http://localhost:3000/fish'
@@ -38,12 +42,26 @@ class MainContainer extends Component{
         })
     }
 
+
     render () {
         return (
-        <div className='section' >
-            <Navbar />
-            <DisplayContainer />
-        </div>
+        <BrowserRouter>
+
+         <div className='section' >
+            <h1>Main Container</h1>
+            <Navbar 
+            handleClick={this.handleClick}
+            />
+            <Switch>
+                
+                <DisplayContainer 
+                villagers={this.state.villagers}
+                />
+            </Switch>
+         </div>
+
+        </BrowserRouter>
+       
     )
     }
     
