@@ -5,7 +5,7 @@ const Header = () => {
 
     return (
         <div className="title friend">
-            <h1 className="acnh-text">Island Manager</h1>
+            <h1 id="header-title" className="acnh-text">Island Helper</h1>
         </div>
     )
 }

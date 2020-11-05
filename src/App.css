@@ -67,6 +67,12 @@
 }
 .acnh-btn{
   line-height: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 60px;
+  width: 200px;
 }
 .acnh-label{
   line-height: 18px;
@@ -76,7 +82,7 @@
   background-color: rgb(29, 182, 175);
   padding: .5rem;
   border: rgb(29, 182, 175) solid .3rem;;
-  border-radius: 3rem;
+  border-radius: 10px;
   text-align: center;
   font-family: Nunito,Helvetica Rounded,Arial,sans-serif;
   font-size: 16px;
@@ -151,12 +157,13 @@
   display: block;
   color: #f9f6e5;
   margin-bottom: 15px;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 5px;
+  height: 100px;
 }
 .title.friend {
   background: #e28f00;
@@ -190,18 +197,27 @@
 
 #display-container{
   height: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
 
 #user-sidebar {
   width: 30%;
-  overflow-x: hidden;
   z-index: 1;
   justify-content: left;
   position: fixed;
+  margin-top: 10px;
 }
 
 #card-container {
   width: 65%;
   margin-left: 35%;
   justify-content: left;
+  margin-top: 10px;
+}
+
+#header-title{
+  font-size: 60px;
 }
