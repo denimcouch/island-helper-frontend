@@ -1,18 +1,17 @@
 import React, {Component} from 'react'
 import './App.css';
+import Header from './components/Header'
+import MainContainer from './containers/MainContainer';
+
 
 class App extends Component{
 
-  state = {
-    villagers: [],
-    fish: [],
-    bugs: []
-  }
-
+  
   render () {
     return (
     <div className="App wrapper">
-      <h1 className="acnh-text">Hello World</h1>
+      <Header />
+      <MainContainer/>
     </div>
   );
   }
