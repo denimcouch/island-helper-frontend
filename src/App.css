@@ -137,3 +137,53 @@
   color: rgb(236,153, 158);
 }
 
+@-webkit-keyframes slide {
+  0%{
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 10000%;
+  }
+}
+
+.title {
+  font-size: 24px;
+  display: block;
+  color: #f9f6e5;
+  margin-bottom: 15px;
+  padding: 5px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+.title.friend {
+  background: #e28f00;
+  border-top: 5px solid #f49a00;
+  border-bottom: 5px solid #f49a00;
+  border-left: 5px solid #f49a00;
+  border-right: 5px solid #f49a00;
+  border-radius: 5px;
+}
+
+.section {
+  display: block;
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  
+  text-align: center;
+  border-radius: 5px;
+}
+
+.section.teal {
+  background: #58bca9;
+  border-top: 5px solid #58bca9;
+  border-bottom: 5px solid #58bca9;
+}
+
+.section.green {
+  color: #10997f;
+}
