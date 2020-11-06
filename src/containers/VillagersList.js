@@ -3,7 +3,7 @@ import Villager from "../components/Villager";
 
 const VillagersList = (props) => {
   let { villagers } = props;
-
+  console.log('These are the props in VillagersList', props)
   return (
     <div className="card-container section teal">
       <h3 className="acnh-text">Villagers</h3>
