@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import Villager from "../components/Villager";
+import React from "react";
 import VillagersList from "./VillagersList";
 import BugsList from "./BugsList";
 import FishList from "./FishList";
