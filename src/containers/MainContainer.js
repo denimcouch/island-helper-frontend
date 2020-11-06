@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import DisplayContainer from "./DisplayContainer";
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 const villagersURL = "http://localhost:3000/villagers";
 const fishURL = "http://localhost:3000/fish";
@@ -39,12 +40,13 @@ class MainContainer extends Component {
 
   render() {
     return (
-      <div className="section">
+    <Router >
+        <div className="section">
         <h1>Main Container</h1>
         <Navbar />
-
         <DisplayContainer villagers={this.state.villagers} />
       </div>
+    </Router>
     );
   }
 }
