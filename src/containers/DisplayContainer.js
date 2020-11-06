@@ -4,10 +4,15 @@ import CardContainer from './CardContainer'
 
 const DisplayContainer = (props) => {
 
+    let {villagers} = props
+
     return (
         <div id="display-container" className="title friend">
+            <h1>Display Container</h1>
             <UserSideBar />
-            <CardContainer />
+            <CardContainer 
+            villagers={villagers}
+            />
         </div>
     )
 }
