@@ -1,11 +1,14 @@
 import React from 'react'
 
 
-const Fish = () => {
+const Fish = (props) => {
+
+    let {fish} = props
 
     return (
-        <div className="title friend">
-            <h1 className="acnh-text">Island Manager</h1>
+        <div className="section acnh-label-menu four wide column">
+            <h4 className="acnh-text">{fish.name}</h4>
+            <img src={fish.image_cute} alt={`${fish.name}'s icon`}/>
         </div>
     )
 }

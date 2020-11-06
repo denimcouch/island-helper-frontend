@@ -7,7 +7,7 @@ const Navbar = (props) => {
     return (
         <div className="section acnh-label-menu">
             <NavLink 
-            to="/"
+            to="/homepage"
             >
                 <button className="acnh-btn acnh-label" >Home</button>
             </NavLink>
@@ -26,9 +26,6 @@ const Navbar = (props) => {
             >
                 <button className="acnh-btn acnh-label" >Fish</button>
             </NavLink>
-            {/* <button className="acnh-btn acnh-label" >Villagers</button>
-            <button className="acnh-btn acnh-label" >Bugs</button>
-            <button className="acnh-btn acnh-label" >Fish</button> */}
         </div>
     )
 }

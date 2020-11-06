@@ -1,13 +1,20 @@
-import React from 'react'
-
+import React from "react";
+import Fish from "../components/Fish";
 
 const FishList = (props) => {
+  let { fish } = props;
 
-    return (
-        <div className="title friend">
-            <h1 className="acnh-text">Island Manager</h1>
-        </div>
-    )
-}
+  return (
+    <div className="card-container section teal">
+      <h3 className="acnh-text">Fish</h3>
+      <br />
+      <div className="ui center aligned grid">
+        {fish.map((fish) => (
+          <Fish fish={fish} key={fish.id} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default FishList
+export default FishList;

@@ -1,11 +1,14 @@
 import React from 'react'
 
 
-const Bug = () => {
+const Bug = (props) => {
+
+    let {bug} = props
 
     return (
-        <div className="title friend">
-            <h1 className="acnh-text">Island Manager</h1>
+        <div className="section acnh-label-menu four wide column">
+            <h4 className="acnh-text">{bug.name}</h4>
+            <img src={bug.image_cute} alt={`${bug.name}'s icon`}/>
         </div>
     )
 }

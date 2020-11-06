@@ -12,6 +12,7 @@ class MainContainer extends Component {
     villagers: [],
     fish: [],
     bugs: [],
+    user: []
   };
 
   componentDidMount() {
@@ -36,6 +37,13 @@ class MainContainer extends Component {
           bugs,
         });
       });
+    fetch('http://localhost:3000/users/1')
+    .then(res => res.json())
+    .then(user => {
+        this.setState({
+            user: user
+        })
+    })
   }
 
   render() {
@@ -44,7 +52,7 @@ class MainContainer extends Component {
         <div className="section">
         <h1>Main Container</h1>
         <Navbar />
-        <DisplayContainer villagers={this.state.villagers} />
+        <DisplayContainer villagers={this.state.villagers} fish={this.state.fish} bugs={this.state.bugs} user={this.state.user} />
       </div>
     </Router>
     );
