@@ -1,5 +1,6 @@
 import React from "react";
 import Villager from "../components/Villager";
+import VillagerModal from '../components/VillagerModal'
 
 const VillagersList = (props) => {
   let { villagers } = props;
@@ -10,7 +11,7 @@ const VillagersList = (props) => {
       <br />
       <div className="ui center aligned grid">
         {villagers.map((villager) => (
-          <Villager villager={villager} key={villager.id} />
+          <VillagerModal villager={villager} key={villager.id} />
         ))}
       </div>
     </div>
