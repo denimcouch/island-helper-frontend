@@ -1,5 +1,5 @@
 import React from "react";
-import Bug from "../components/Bug";
+import BugModal from "../components/BugModal";
 
 const BugsList = (props) => {
   let { bugs } = props;
@@ -10,7 +10,7 @@ const BugsList = (props) => {
       <br />
       <div className="ui center aligned grid">
         {bugs.map((bug) => (
-          <Bug bug={bug} key={bug.id} />
+          <BugModal bug={bug} key={bug.id} />
         ))}
       </div>
     </div>

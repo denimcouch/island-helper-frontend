@@ -1,5 +1,4 @@
 import React from "react";
-import Villager from "../components/Villager";
 import VillagerModal from '../components/VillagerModal'
 
 const VillagersList = (props) => {
