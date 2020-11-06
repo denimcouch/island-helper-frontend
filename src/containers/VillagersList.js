@@ -5,7 +5,7 @@ const VillagersList = (props) => {
   let { villagers } = props;
 
   return (
-    <div className="section acnh-label-menu">
+    <div className="card-container section teal">
       <h3 className="acnh-text">Villagers</h3>
       <br />
       <div className="ui center aligned grid">

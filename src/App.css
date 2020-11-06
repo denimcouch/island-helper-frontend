@@ -205,13 +205,12 @@
 
 #user-sidebar {
   width: 30%;
-  z-index: 1;
   justify-content: left;
   position: fixed;
   margin-top: 10px;
 }
 
-#card-container {
+.card-container {
   width: 65%;
   margin-left: 35%;
   margin-top: 10px;

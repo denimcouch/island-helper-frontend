@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import DisplayContainer from "./DisplayContainer";
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 const villagersURL = "http://localhost:3000/villagers";
 const fishURL = "http://localhost:3000/fish";
@@ -11,6 +12,7 @@ class MainContainer extends Component {
     villagers: [],
     fish: [],
     bugs: [],
+    user: []
   };
 
   componentDidMount() {
@@ -35,16 +37,24 @@ class MainContainer extends Component {
           bugs,
         });
       });
+    fetch('http://localhost:3000/users/1')
+    .then(res => res.json())
+    .then(user => {
+        this.setState({
+            user: user
+        })
+    })
   }
 
   render() {
     return (
-      <div className="section">
+    <Router >
+        <div className="section">
         <h1>Main Container</h1>
         <Navbar />
-
-        <DisplayContainer villagers={this.state.villagers} />
+        <DisplayContainer villagers={this.state.villagers} fish={this.state.fish} bugs={this.state.bugs} user={this.state.user} />
       </div>
+    </Router>
     );
   }
 }
