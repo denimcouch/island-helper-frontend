@@ -1,11 +1,17 @@
 import React from "react";
 
 const SearchBar = (props) => {
-  let { handleSearch, handleSpeciesFilter, handlePersonalityFilter, handleGenderFilter, handleSort} = props;
+  let {
+    handleSearch,
+    handleSpeciesFilter,
+    handlePersonalityFilter,
+    handleGenderFilter,
+    handleSort,
+  } = props;
 
   return (
     <div>
-      <strong>Sort by:</strong>
+      <strong>Sort by: </strong>
       <label>
         <input
           type="checkbox"
