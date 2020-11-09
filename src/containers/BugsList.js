@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import BugModal from "../components/BugModal";
+import SearchBar from '../components/SearchBar'
 
 class BugsList extends Component {
   render() {

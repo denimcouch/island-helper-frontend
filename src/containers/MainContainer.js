@@ -65,7 +65,6 @@ class MainContainer extends Component {
     return (
       <Router>
         <div className="section">
-          <h1>Main Container</h1>
           <Navbar match={this.props.match} />
           {this.showDisplayContainer()}
         </div>

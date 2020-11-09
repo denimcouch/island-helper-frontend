@@ -1,6 +1,6 @@
-import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import VillagerModal from "../components/VillagerModal";
+import SearchBar from '../components/SearchBar'
 
 class VillagersList extends Component {
   render() {

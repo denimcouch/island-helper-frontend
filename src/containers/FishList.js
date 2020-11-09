@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import FishModal from "../components/FishModal";
+import SearchBar from '../components/SearchBar'
 
 class FishList extends Component {
   render() {
