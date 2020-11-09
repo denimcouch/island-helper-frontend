@@ -224,3 +224,10 @@
   font-size: 60px;
 }
 
+.search-bar{
+  font-size: medium;
+  width: 30%;
+  justify-content: left;
+  position: fixed;
+  top: 600px;
+}

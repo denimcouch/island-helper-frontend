@@ -5,7 +5,7 @@ function FishModal({ fish }) {
   const [open, setOpen] = React.useState(false);
 
   const available = JSON.parse(fish.availability.replace(/=>/g, ":"));
-  console.log(available["month-array-northern"]);
+
 
   const months = {
     1: "January",
@@ -48,7 +48,7 @@ function FishModal({ fish }) {
     >
       <Modal.Header>{capitalizeWords(fish.name)}</Modal.Header>
       <Modal.Content image>
-        <Image size="larger" src={fish.image} wrapped />
+        <Image size="massive" src={fish.image} wrapped />
         <Modal.Description>
           <Header>{`"${fish.catch_phrase}"`}</Header>
           <p>{`"${fish.description}" - Blathers`}</p>
