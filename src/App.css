@@ -211,9 +211,12 @@
 }
 
 .card-container {
+  height: 550px;
   width: 65%;
   margin-left: 35%;
   margin-top: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   
 }
 
