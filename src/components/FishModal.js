@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-function BugModal({ bug }) {
+function FishModal({ fish }) {
   const [open, setOpen] = React.useState(false);
 
-  const available = JSON.parse(bug.availability.replace(/=>/g, ":"));
+  const available = JSON.parse(fish.availability.replace(/=>/g, ":"));
   console.log(available["month-array-northern"]);
 
   const months = {
@@ -41,17 +41,17 @@ function BugModal({ bug }) {
       open={open}
       trigger={
         <div className="section acnh-label-menu four wide column">
-          <h4 className="acnh-text">{capitalizeWords(bug.name)}</h4>
-          <img src={bug.image_cute} alt={`${bug.name}'s icon`} />
+          <h4 className="acnh-text">{capitalizeWords(fish.name)}</h4>
+          <img src={fish.image_cute} alt={`${fish.name}'s icon`} />
         </div>
       }
     >
-      <Modal.Header>{capitalizeWords(bug.name)}</Modal.Header>
+      <Modal.Header>{capitalizeWords(fish.name)}</Modal.Header>
       <Modal.Content image>
-        <Image size="larger" src={bug.image} wrapped />
+        <Image size="larger" src={fish.image} wrapped />
         <Modal.Description>
-          <Header>{`"${bug.catch_phrase}"`}</Header>
-          <p>{`"${bug.description}" - Blathers`}</p>
+          <Header>{`"${fish.catch_phrase}"`}</Header>
+          <p>{`"${fish.description}" - Blathers`}</p>
           <p>Rarity: {available.rarity} </p>
           <p>
             Time Available: {available.isAllDay ? "All Day" : available.time}{" "}
@@ -73,8 +73,9 @@ function BugModal({ bug }) {
               </ul>
             )}
           </p>
+
           <p>
-            Price: {bug.price} bells / {bug.price_flick} bells (Flick){" "}
+            Price: {fish.price} bells / {fish.price_cj} bells (CJ){" "}
           </p>
         </Modal.Description>
       </Modal.Content>
@@ -94,4 +95,4 @@ function BugModal({ bug }) {
   );
 }
 
-export default BugModal;
+export default FishModal;
