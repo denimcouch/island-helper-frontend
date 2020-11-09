@@ -1,5 +1,5 @@
 import React from "react";
-import Fish from "../components/Fish";
+import FishModal from "../components/FishModal";
 
 const FishList = (props) => {
   let { fish } = props;
@@ -10,7 +10,7 @@ const FishList = (props) => {
       <br />
       <div className="ui center aligned grid">
         {fish.map((fish) => (
-          <Fish fish={fish} key={fish.id} />
+          <FishModal fish={fish} key={fish.id} />
         ))}
       </div>
     </div>
