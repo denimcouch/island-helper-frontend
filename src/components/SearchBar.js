@@ -1,17 +1,17 @@
 import React from "react";
 
 const SearchBar = (props) => {
-  let { handleSearch, handleSpeciesFilter, handlePersonalityFilter } = props;
+  let { handleSearch, handleSpeciesFilter, handlePersonalityFilter, handleGenderFilter, handleSort} = props;
 
   return (
     <div>
       <strong>Sort by:</strong>
       <label>
         <input
-          type="radio"
+          type="checkbox"
           value="Alphabetically"
           checked={null}
-          onChange={(e) => console.log("I'm clicked!", e.target.value)}
+          onChange={(e) => handleSort(e.target.checked)}
         />
         Alphabetically
       </label>
@@ -28,7 +28,7 @@ const SearchBar = (props) => {
       <br />
 
       <label>
-        <strong>Filter by Species:</strong>
+        <strong>Filter by Species: </strong>
         <select onChange={(e) => handleSpeciesFilter(e.target.value)}>
           <option value="">All</option>
           {props.species.map((species) => (
@@ -39,12 +39,22 @@ const SearchBar = (props) => {
       <br />
       <br />
       <label>
-        <strong>Filter by Personality:</strong>
+        <strong>Filter by Personality: </strong>
         <select onChange={(e) => handlePersonalityFilter(e.target.value)}>
           <option value="">All</option>
           {props.personalities.map((p) => (
             <option value={p}>{p}</option>
           ))}
+        </select>
+      </label>
+      <br />
+      <br />
+      <label>
+        <strong>Filter by Gender: </strong>
+        <select onChange={(e) => handleGenderFilter(e.target.value)}>
+          <option value="">All</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
       </label>
       <br />

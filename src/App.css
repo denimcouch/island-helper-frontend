@@ -225,9 +225,10 @@
 }
 
 .search-bar{
+  padding: 10px 10px 10px 10px;
   font-size: medium;
   width: 30%;
   justify-content: left;
   position: fixed;
-  top: 600px;
+  top: 550px;
 }
