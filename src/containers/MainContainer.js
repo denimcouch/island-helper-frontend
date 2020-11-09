@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import DisplayContainer from "./DisplayContainer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const villagersURL = "http://localhost:3000/villagers";
 const fishURL = "http://localhost:3000/fish";
@@ -33,8 +33,9 @@ class MainContainer extends Component {
     fetch(bugsURL)
       .then((res) => res.json())
       .then((bugs) => {
+        // const newBugs = bugs.forEach(bug => bug.availability.split( '=>').join(":"))
         this.setState({
-          bugs,
+          bugs
         });
       });
     fetch("http://localhost:3000/users/1")
