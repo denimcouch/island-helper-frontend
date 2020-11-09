@@ -5,7 +5,7 @@ function BugModal({ bug }) {
   const [open, setOpen] = React.useState(false);
 
   const available = JSON.parse(bug.availability.replace(/=>/g, ":"));
-  console.log(available["month-array-northern"]);
+  
 
   const months = {
     1: "January",
@@ -48,7 +48,7 @@ function BugModal({ bug }) {
     >
       <Modal.Header>{capitalizeWords(bug.name)}</Modal.Header>
       <Modal.Content image>
-        <Image size="larger" src={bug.image} wrapped />
+        <Image size="massive" src={bug.image} wrapped />
         <Modal.Description>
           <Header>{`"${bug.catch_phrase}"`}</Header>
           <p>{`"${bug.description}" - Blathers`}</p>

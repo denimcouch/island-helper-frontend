@@ -5,17 +5,16 @@ import VillagersList from "./VillagersList";
 import BugsList from "./BugsList";
 import FishList from "./FishList";
 import UserHome from "./UserHome";
-import SearchBar from '../components/SearchBar'
+
 
 const DisplayContainer = (props) => {
   let { villagers, fish, bugs, user, match } = props;
 
-  
+
 
   return (
     <div id="display-container" className="title friend">
       <UserSideBar user={user} />
-      <SearchBar />
       <Route
         exact
         path={`${match.url}`}
