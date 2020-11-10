@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import VillagerModal from "../components/VillagerModal";
-import SearchBar from "../components/SearchBar";
+import VillagerSearchBar from "../components/VillagerSearchBar";
 
 class VillagersList extends Component {
   state = {
@@ -82,7 +82,7 @@ class VillagersList extends Component {
     return (
       <>
         <div className="search-bar section teal acnh-text">
-          <SearchBar
+          <VillagerSearchBar
             personalities={this.villagerPersonalities()}
             species={this.villagerSpecies()}
             handleSearch={this.handleSearch}
