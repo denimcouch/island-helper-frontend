@@ -61,7 +61,6 @@ class MainContainer extends Component {
   }
 
   render() {
-    console.log("Bugs in MainContainer", this.state.bugs)
     return (
       <Router>
         <div className="section">

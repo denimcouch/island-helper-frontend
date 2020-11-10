@@ -2,37 +2,50 @@ import React from "react";
 
 const CritterSearchBar = (props) => {
 
-    let { handleSearch, handleLocationFilter } = props
+    let { handleSearch, handleLocationFilter, handleRarityFilter, handleSort } = props
   
     return (
     <div>
       <strong>Sort by: </strong>
-      <label>
-        <input
-          type="checkbox"
+      <form>
+        <label><input
+          type="radio"
+          name="sort"
           value="Alphabetically"
-          checked={null}
-          onChange={(e) => console.log(e.target.value)}
-        />
-        Alphabetically
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          value="Price"
-          checked={null}
-          onChange={(e) => console.log("I'm clicked!", e.target.value )}
-        />
-        Price
-      </label>
+          onChange={(e) => handleSort(e.target.value)}
+        /> Alphabetically</label>
+        <br />
+        <label><input
+          type="radio"
+          name="sort"
+          value="lowToHigh"
+          onChange={(e) => handleSort(e.target.value )}
+        />Price (low to high)</label>
+        <br />
+        <label><input
+          type="radio"
+          name="sort"
+          value="highToLow"
+          onChange={(e) => handleSort(e.target.value )}
+        />Price (high to low)</label>
+        <br />
+        <label><input
+          type="radio"
+          name="sort"
+          value=""
+          onChange={(e) => handleSort(e.target.value )}
+        />Default</label>
+      </form>
       <br />
       <br />
 
       <label>
-        <strong>Filter by Species: </strong>
-        <select onChange={(e) => console.log(e.target.value)}>
+      <strong>Filter by Rarity: </strong>
+        <select onChange={(e) => handleRarityFilter(e.target.value)}>
           <option value="">All</option>
-          
+          {props.rarities.map((p) => (
+            <option value={p}>{p}</option>
+          ))}
         </select>
       </label>
       <br />
