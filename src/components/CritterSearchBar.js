@@ -1,15 +1,10 @@
 import React from "react";
 
-const SearchBar = (props) => {
-  let {
-    handleSearch,
-    handleSpeciesFilter,
-    handlePersonalityFilter,
-    handleGenderFilter,
-    handleSort,
-  } = props;
+const CritterSearchBar = (props) => {
 
-  return (
+    let { handleSearch } = props
+  
+    return (
     <div>
       <strong>Sort by: </strong>
       <label>
@@ -17,50 +12,36 @@ const SearchBar = (props) => {
           type="checkbox"
           value="Alphabetically"
           checked={null}
-          onChange={(e) => handleSort(e.target.checked)}
+          onChange={(e) => console.log(e.target.value)}
         />
         Alphabetically
       </label>
-      {/* <label>
+      <label>
         <input
-          type="radio"
-          value="Birthdate"
+          type="checkbox"
+          value="Price"
           checked={null}
           onChange={(e) => console.log("I'm clicked!", e.target.value )}
         />
-        Birthdate
-      </label> */}
+        Price
+      </label>
       <br />
       <br />
 
       <label>
         <strong>Filter by Species: </strong>
-        <select onChange={(e) => handleSpeciesFilter(e.target.value)}>
+        <select onChange={(e) => console.log(e.target.value)}>
           <option value="">All</option>
-          {props.species.map((species) => (
-            <option value={species}>{species}</option>
-          ))}
+          
         </select>
       </label>
       <br />
       <br />
       <label>
         <strong>Filter by Personality: </strong>
-        <select onChange={(e) => handlePersonalityFilter(e.target.value)}>
+        <select onChange={(e) => console.log(e.target.value)}>
           <option value="">All</option>
-          {props.personalities.map((p) => (
-            <option value={p}>{p}</option>
-          ))}
-        </select>
-      </label>
-      <br />
-      <br />
-      <label>
-        <strong>Filter by Gender: </strong>
-        <select onChange={(e) => handleGenderFilter(e.target.value)}>
-          <option value="">All</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          
         </select>
       </label>
       <br />
@@ -82,4 +63,4 @@ const SearchBar = (props) => {
   );
 };
 
-export default SearchBar;
+export default CritterSearchBar;

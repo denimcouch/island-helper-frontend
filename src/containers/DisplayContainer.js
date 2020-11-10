@@ -10,7 +10,7 @@ import UserHome from "./UserHome";
 const DisplayContainer = (props) => {
   let { villagers, fish, bugs, user, match } = props;
 
-
+  console.log("Bugs in DisplayContainer", bugs)
 
   return (
     <div id="display-container" className="title friend">

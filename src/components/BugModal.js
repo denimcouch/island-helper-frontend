@@ -3,6 +3,7 @@ import { Button, Header, Image, Modal } from "semantic-ui-react";
 
 function BugModal({ bug }) {
   const [open, setOpen] = React.useState(false);
+
   console.log("available", bug)
   
 
@@ -51,6 +52,7 @@ function BugModal({ bug }) {
         <Modal.Description>
           <Header>{`"${bug.catch_phrase}"`}</Header>
           <p>{`"${bug.description}" - Blathers`}</p>
+
           <p>Rarity: {bug.availability[0].rarity} </p>
           <p>
             Time Available: {bug.availability[0].isAllDay ? "All Day" : bug.availability[0].time}{" "}
@@ -63,6 +65,7 @@ function BugModal({ bug }) {
               <ul>
                 <li>
                   Northern Hemisphere:{" "}
+
                   {bug.availability[0].monthNorthern}
                 </li>
                 <li>
