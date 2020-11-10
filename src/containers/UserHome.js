@@ -9,21 +9,13 @@ const UserHome = (props) => {
 
   return (
     <div>
-      <h2>{`${user.name}'s Home Page`}</h2>
       <div>
-        <VillagersList villagers={user.villagers} />
-        <BugsList bugs={user.bugs} />
-        <FishList fish={user.fishes} />
+        <VillagersList villagers={user.villagers} page="home"/>
+        <BugsList bugs={user.bugs} page="home"/>
+        <FishList fish={user.fishes} page="home"/>
       </div>
     </div>
   );
 };
 
 export default UserHome;
-
-// {/* <h3 className="acnh-text">{user.name}</h3>
-//       <br />
-//       <div className="ui center aligned grid"> */}
-//         {/* {user.villagers.map((villager) => {
-//           <Villager villager={villager} />;
-//         })} */}{/* </div> */}

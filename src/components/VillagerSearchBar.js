@@ -21,6 +21,7 @@ const VillagerSearchBar = (props) => {
         />
         Alphabetically
       </label>
+      <br />
       {/* <label>
         <input
           type="radio"
