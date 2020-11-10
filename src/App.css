@@ -205,18 +205,21 @@
 
 #user-sidebar {
   width: 30%;
+  padding: 10px 10px 10px 10px;
   justify-content: left;
   position: relative;
   margin-top: 10px;
 }
 
 .card-container {
-  height: 550px;
+  height: 675px;
   width: 65%;
   margin-left: 35%;
   margin-top: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
+  position: relative;
+  top: -320px;
   
 }
 
@@ -227,8 +230,9 @@
 .search-bar{
   padding: 10px 10px 10px 10px;
   font-size: medium;
-  width: 30%;
+  width: 28.5%;
+  height: 350px;
   justify-content: left;
-  position: relative;
-  top: 100px;
+  position: absolute;
+  top: 580px;
 }

@@ -81,6 +81,16 @@ class VillagersList extends Component {
     )
     return (
       <>
+        <div className="card-container section teal">
+          <h3 className="acnh-text">Villagers</h3>
+          <br />
+          <div className="ui center aligned grid">
+            {villagers.map((villager) => (
+              <VillagerModal villager={villager} key={villager.id} />
+            ))}
+          </div>
+        </div>
+      {this.props.page === 'home' ? null : 
         <div className="search-bar section teal acnh-text">
           <VillagerSearchBar
             personalities={this.villagerPersonalities()}
@@ -91,16 +101,7 @@ class VillagersList extends Component {
             handleGenderFilter={this.handleGenderFilter}
             handleSort={this.handleSort}
           />
-        </div>
-        <div className="card-container section teal">
-          <h3 className="acnh-text">Villagers</h3>
-          <br />
-          <div className="ui center aligned grid">
-            {villagers.map((villager) => (
-              <VillagerModal villager={villager} key={villager.id} />
-            ))}
-          </div>
-        </div>
+        </div> }
       </>
     );
   }
