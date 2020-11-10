@@ -46,7 +46,9 @@ class BugsList extends Component {
   // };
 
   render() {
-    console.log("Bugs in BugsList", this.props.bugs);
+    let { bugs } = this.props;
+    //console.log("bugs list", bugs)
+
     return (
       <>
         <div className="search-bar section teal acnh-text">
