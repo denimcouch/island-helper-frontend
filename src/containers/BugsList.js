@@ -11,10 +11,6 @@ class BugsList extends Component {
     bugs: [],
   };
 
-  componentDidMount(){
-    this.formatBugs()
-  }
-
   handleSearch = (searchWord) => {
     this.setState({
       searchTerm: searchWord,
@@ -28,23 +24,7 @@ class BugsList extends Component {
     );
   };
 
-  // formatBugs = () => {
-  //   if (this.props.bugs.length === 0) {
-  //     return [];
-  //   } else {
-  //     this.setState({
-  //       bugs: this.props.bugs.map((bug) => {
-  //         let formattedAvailability = JSON.parse(
-  //           bug.availability.replace(/=>/g, ":")
-  //         );
-  //         bug.availability = formattedAvailability;
-  //         console.log("Inside of formatBugs", bug);
-  //         return bug;
-  //       }),
-  //     });
-  //   }
-  // };
-
+  
   render() {
     let { bugs } = this.props;
     //console.log("bugs list", bugs)
