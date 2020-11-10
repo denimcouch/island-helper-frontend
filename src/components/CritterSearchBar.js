@@ -2,7 +2,7 @@ import React from "react";
 
 const CritterSearchBar = (props) => {
 
-    let { handleSearch } = props
+    let { handleSearch, handleLocationFilter } = props
   
     return (
     <div>
@@ -38,10 +38,12 @@ const CritterSearchBar = (props) => {
       <br />
       <br />
       <label>
-        <strong>Filter by Personality: </strong>
-        <select onChange={(e) => console.log(e.target.value)}>
+        <strong>Filter by Location: </strong>
+        <select onChange={(e) => handleLocationFilter(e.target.value)}>
           <option value="">All</option>
-          
+          {props.locations.map((p) => (
+            <option value={p}>{p}</option>
+          ))}
         </select>
       </label>
       <br />
