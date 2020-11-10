@@ -43,7 +43,7 @@ class LandingPage extends Component {
             />
 
             <NavLink to="/home">
-              <Button content="Login" onClick={() => console.log("I'm logging in!", this.state)} primary />
+              <Button content="Login" onClick={() => this.props.logInUser(this.state)} primary />
             </NavLink>
           </Form>
         </Grid.Column>

@@ -37,11 +37,11 @@ class MainContainer extends Component {
           bugs
         });
       });
-    fetch("http://localhost:3000/users/1")
+    fetch("http://localhost:3000/users/Alex")
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          user: user,
+          user: user[0],
         });
       });
   }
