@@ -33,7 +33,6 @@ class MainContainer extends Component {
     fetch(bugsURL)
       .then((res) => res.json())
       .then((bugs) => {
-        // const newBugs = bugs.forEach(bug => bug.availability.split( '=>').join(":"))
         this.setState({
           bugs
         });
@@ -62,6 +61,7 @@ class MainContainer extends Component {
   }
 
   render() {
+    console.log("Bugs in MainContainer", this.state.bugs)
     return (
       <Router>
         <div className="section">

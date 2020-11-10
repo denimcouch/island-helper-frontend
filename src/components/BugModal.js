@@ -4,9 +4,6 @@ import { Button, Header, Image, Modal } from "semantic-ui-react";
 function BugModal({ bug }) {
   const [open, setOpen] = React.useState(false);
 
-  const available = JSON.parse(bug.availability.replace(/=>/g, ":"));
-  
-
   const months = {
     1: "January",
     2: "February",
@@ -52,23 +49,23 @@ function BugModal({ bug }) {
         <Modal.Description>
           <Header>{`"${bug.catch_phrase}"`}</Header>
           <p>{`"${bug.description}" - Blathers`}</p>
-          <p>Rarity: {available.rarity} </p>
+          <p>Rarity: {bug.availability.rarity} </p>
           <p>
-            Time Available: {available.isAllDay ? "All Day" : available.time}{" "}
+            Time Available: {bug.availability.isAllDay ? "All Day" : bug.availability.time}{" "}
           </p>
           <p>
             Months Available:{" "}
-            {available.isAllYear ? (
+            {bug.availability.isAllYear ? (
               "All Year"
             ) : (
               <ul>
                 <li>
                   Northern Hemisphere:{" "}
-                  {mapMonths(available["month-array-northern"])}
+                  {mapMonths(bug.availability["month-array-northern"])}
                 </li>
                 <li>
                   Southern Hemisphere:{" "}
-                  {mapMonths(available["month-array-southern"])}
+                  {mapMonths(bug.availability["month-array-southern"])}
                 </li>
               </ul>
             )}
