@@ -6,6 +6,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LandingPage from './containers/LandingPage'
 
 class App extends Component {
+  
+  state = {
+    clicked: false
+  }
+
   render() {
     return (
       <Router>
