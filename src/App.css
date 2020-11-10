@@ -206,7 +206,7 @@
 #user-sidebar {
   width: 30%;
   justify-content: left;
-  position: fixed;
+  position: relative;
   margin-top: 10px;
 }
 
@@ -215,6 +215,8 @@
   width: 65%;
   margin-left: 35%;
   margin-top: 10px;
+  top: 350px;
+  position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
   
@@ -229,6 +231,6 @@
   font-size: medium;
   width: 30%;
   justify-content: left;
-  position: fixed;
-  top: 550px;
+  position: relative;
+  top: 100px;
 }

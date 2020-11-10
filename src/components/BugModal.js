@@ -3,8 +3,7 @@ import { Button, Header, Image, Modal } from "semantic-ui-react";
 
 function BugModal({ bug }) {
   const [open, setOpen] = React.useState(false);
-
-  const available = JSON.parse(bug.availability.replace(/=>/g, ":"));
+  console.log("available", bug)
   
 
   const months = {
@@ -22,10 +21,10 @@ function BugModal({ bug }) {
     12: "December",
   };
 
-  const mapMonths = (array) => {
-    let monthsArray = array.map((num) => months[num]);
-    return `${monthsArray[0]} - ${monthsArray.slice(-1)}`;
-  };
+  // const mapMonths = (array) => {
+  //   let monthsArray = array.map((num) => months[num]);
+  //   return `${monthsArray[0]} - ${monthsArray.slice(-1)}`;
+  // };
 
   const capitalizeWords = (string) => {
     let array = string.split(" ");
@@ -52,23 +51,23 @@ function BugModal({ bug }) {
         <Modal.Description>
           <Header>{`"${bug.catch_phrase}"`}</Header>
           <p>{`"${bug.description}" - Blathers`}</p>
-          <p>Rarity: {available.rarity} </p>
+          <p>Rarity: {bug.availability[0].rarity} </p>
           <p>
-            Time Available: {available.isAllDay ? "All Day" : available.time}{" "}
+            Time Available: {bug.availability[0].isAllDay ? "All Day" : bug.availability[0].time}{" "}
           </p>
           <p>
             Months Available:{" "}
-            {available.isAllYear ? (
+            {bug.availability[0].isAllYear ? (
               "All Year"
             ) : (
               <ul>
                 <li>
                   Northern Hemisphere:{" "}
-                  {mapMonths(available["month-array-northern"])}
+                  {bug.availability[0].monthNorthern}
                 </li>
                 <li>
                   Southern Hemisphere:{" "}
-                  {mapMonths(available["month-array-southern"])}
+                  {bug.availability[0].monthSouthern}
                 </li>
               </ul>
             )}

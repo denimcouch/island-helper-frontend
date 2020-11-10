@@ -6,6 +6,7 @@ import SearchBar from '../components/SearchBar'
 class BugsList extends Component {
   render() {
     let { bugs } = this.props;
+    //console.log("bugs list", bugs)
     return (
       <div className="card-container section teal">
         <h3 className="acnh-text">Bugs</h3>

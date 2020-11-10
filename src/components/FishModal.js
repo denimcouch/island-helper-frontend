@@ -4,9 +4,6 @@ import { Button, Header, Image, Modal } from "semantic-ui-react";
 function FishModal({ fish }) {
   const [open, setOpen] = React.useState(false);
 
-  const available = JSON.parse(fish.availability.replace(/=>/g, ":"));
-
-
   const months = {
     1: "January",
     2: "February",
@@ -22,10 +19,10 @@ function FishModal({ fish }) {
     12: "December",
   };
 
-  const mapMonths = (array) => {
-    let monthsArray = array.map((num) => months[num]);
-    return `${monthsArray[0]} - ${monthsArray.slice(-1)}`;
-  };
+  // const mapMonths = (array) => {
+  //   let monthsArray = array.map((num) => months[num]);
+  //   return `${monthsArray[0]} - ${monthsArray.slice(-1)}`;
+  // };
 
   const capitalizeWords = (string) => {
     let array = string.split(" ");
@@ -52,23 +49,23 @@ function FishModal({ fish }) {
         <Modal.Description>
           <Header>{`"${fish.catch_phrase}"`}</Header>
           <p>{`"${fish.description}" - Blathers`}</p>
-          <p>Rarity: {available.rarity} </p>
+          <p>Rarity: {fish.availability[0].rarity} </p>
           <p>
-            Time Available: {available.isAllDay ? "All Day" : available.time}{" "}
+            Time Available: {fish.availability[0].isAllDay ? "All Day" : fish.availability[0].time}{" "}
           </p>
           <p>
             Months Available:{" "}
-            {available.isAllYear ? (
+            {fish.availability[0].isAllYear ? (
               "All Year"
             ) : (
               <ul>
                 <li>
                   Northern Hemisphere:{" "}
-                  {mapMonths(available["month-array-northern"])}
+                  {fish.availability[0].monthNorthern}
                 </li>
                 <li>
                   Southern Hemisphere:{" "}
-                  {mapMonths(available["month-array-southern"])}
+                  {fish.availability[0].monthSouthern}
                 </li>
               </ul>
             )}
