@@ -1,10 +1,25 @@
-import React from "react";
+import React, {Component} from "react";
 import { Button, Divider, Form, Grid, Segment } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
-const LandingPage = () => {
+class LandingPage extends Component {
   
-  return (
+  state = {
+    name: '',
+    email: '',
+    password: '',
+    town_name: '',
+    hemisphere: ''
+  }
+
+  handleChange = ({name, value}) => {
+    this.setState({
+      [name]: value
+    })
+  }
+
+  render (){
+    return (
     <Segment className="acnh-text" placeholder>
       <Grid columns={2} relaxed="very" stackable>
         <Grid.Column>
@@ -13,18 +28,22 @@ const LandingPage = () => {
             <Form.Input
               icon="user"
               iconPosition="left"
-              label="Username"
-              placeholder="Username"
+              label="Name"
+              name="name"
+              placeholder="Name"
+              onChange={(e) => this.handleChange(e.target)}
             />
             <Form.Input
               icon="lock"
               iconPosition="left"
+              name="password"
               label="Password"
               type="password"
+              onChange={(e) => this.handleChange(e.target)}
             />
 
             <NavLink to="/home">
-              <Button content="Login" primary />
+              <Button content="Login" onClick={() => console.log("I'm logging in!", this.state)} primary />
             </NavLink>
           </Form>
         </Grid.Column>
@@ -34,22 +53,28 @@ const LandingPage = () => {
           <Form className="acnh-text">
             <Form.Field>
               <label>Name</label>
-              <input name="name" placeholder="Name" />
+              <input name="name" placeholder="Name" onChange={(e) => this.handleChange(e.target)} />
             </Form.Field>
             <Form.Field>
               <label>Email</label>
-              <input name="email" placeholder="Email" />
+              <input name="email" placeholder="Email" onChange={(e) => this.handleChange(e.target)} />
+            </Form.Field>
+            <Form.Field>
+              <label>Password</label>
+              <input name="password" placeholder="Password" type="password" onChange={(e) => this.handleChange(e.target)} />
             </Form.Field>
             <Form.Field>
               <label>Island Name</label>
-              <input name="town_name" placeholder="Island Name" />
+              <input name="town_name" placeholder="Island Name" onChange={(e) => this.handleChange(e.target)} />
             </Form.Field>
-            <Form.Field label="Island Hemisphere" control="select">
+            <Form.Field label="Island Hemisphere" name="hemisphere" control="select" onChange={(e) => this.handleChange(e.target)} >
               <option value="">Choose a Hemisphere</option>
               <option value="northern">Northern</option>
               <option value="southern">Southern</option>
             </Form.Field>
-            <Button content="Sign-up" primary />
+            <NavLink to="/home">
+              <Button content="Sign-up" onClick={() => this.props.signUpUser(this.state)} primary />
+            </NavLink>
           </Form>
         </Grid.Column>
       </Grid>
@@ -57,6 +82,8 @@ const LandingPage = () => {
       <Divider vertical>Or</Divider>
     </Segment>
   );
+  }
+  
 };
 
 export default LandingPage;

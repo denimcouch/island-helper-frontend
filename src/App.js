@@ -6,9 +6,24 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LandingPage from './containers/LandingPage'
 
 class App extends Component {
-  
+
   state = {
-    clicked: false
+  
+  }
+
+  signUpUser = (userObj) => {
+    const userOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(userObj)
+    }
+
+    fetch('http://localhost:3000/users', userOptions)
+    .then(res => res.json())
+    .then(data => console.log("This is the data from POST", data))
   }
 
   render() {
@@ -16,7 +31,7 @@ class App extends Component {
       <Router>
         <div className="App wrapper">
           <Header />
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" render={() => <LandingPage signUpUser={this.signUpUser} />} />
           <Route exact path='/home' render={routerProps => <MainContainer {...routerProps} />} />
           
         </div>
