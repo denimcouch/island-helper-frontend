@@ -24,6 +24,19 @@ class BugsList extends Component {
     );
   };
 
+  handleLocationFilter = (locationWord) => {
+    console.log(locationWord)
+  }
+
+  bugsLocation = () => {
+    let locationsArray = [];
+    this.props.bugs.forEach((bug) => {
+      return locationsArray.includes(bug.availability[0].location)
+        ? null
+        : locationsArray.push(bug.availability[0].location);
+    });
+    return locationsArray;
+  }
   
   render() {
     let { bugs } = this.props;
@@ -32,13 +45,13 @@ class BugsList extends Component {
     return (
       <>
         <div className="search-bar section teal acnh-text">
-          <CritterSearchBar handleSearch={this.handleSearch} />
+          <CritterSearchBar locations={this.bugsLocation()} handleSearch={this.handleSearch} handleLocationFilter={this.handleLocationFilter}/>
         </div>
         <div className="card-container section teal">
           <h3 className="acnh-text">Bugs</h3>
           <br />
           <div className="ui center aligned grid">
-            {this.props.bugs.map((bug) => (
+            {this.searchBugs().map((bug) => (
               <BugModal bug={bug} key={bug.id} />
             ))}
           </div>
