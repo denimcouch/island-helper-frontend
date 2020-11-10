@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Navbar from "./Navbar";
 import DisplayContainer from "./DisplayContainer";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -37,7 +37,7 @@ class MainContainer extends Component {
           bugs
         });
       });
-    fetch("http://localhost:3000/users/Alex")
+    fetch(`http://localhost:3000/users/${this.props.name}`)
       .then((res) => res.json())
       .then((user) => {
         this.setState({
