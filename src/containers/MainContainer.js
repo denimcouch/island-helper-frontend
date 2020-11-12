@@ -76,7 +76,7 @@ class MainContainer extends Component {
       });
   }
 
-  addToTown = (object) => {
+  addVillagerToTown = (object) => {
     fetch("http://localhost:3000/user_villagers", {
       method: "POST",
       headers: {
@@ -103,7 +103,7 @@ class MainContainer extends Component {
       });
   };
 
-  deleteFromTown = (object) => {
+  deleteVillagerFromTown = (object) => {
     let villagerArray = this.state.userVillagers.filter((uv) =>
       uv.villager_id === object.id ? uv : null
     );
@@ -139,8 +139,8 @@ class MainContainer extends Component {
           bugs={this.state.bugs}
           user={this.state.user}
           match={this.props.match}
-          addToTown={this.addToTown}
-          deleteFromTown={this.deleteFromTown}
+          addVillagerToTown={this.addVillagerToTown}
+          deleteVillagerFromTown={this.deleteVillagerFromTown}
         />
       );
     }
