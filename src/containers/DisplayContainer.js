@@ -6,11 +6,20 @@ import BugsList from "./BugsList";
 import FishList from "./FishList";
 import UserHome from "./UserHome";
 
-
 const DisplayContainer = (props) => {
-  let { villagers, fish, bugs, user, match, addVillagerToTown, deleteVillagerFromTown, addBugToTown, deleteBugFromTown } = props;
-
-
+  let {
+    villagers,
+    fish,
+    bugs,
+    user,
+    match,
+    addVillagerToTown,
+    deleteVillagerFromTown,
+    addBugToTown,
+    deleteBugFromTown,
+    addFishToTown,
+    deleteFishFromTown
+  } = props;
 
   return (
     <div id="display-container" className="title friend">
@@ -18,24 +27,44 @@ const DisplayContainer = (props) => {
       <Route
         exact
         path={`${match.url}`}
-        render={(routerProps) => <UserHome {...routerProps} user={user} deleteFromTown={deleteVillagerFromTown} deleteBugFromTown={deleteBugFromTown} />}
+        render={(routerProps) => (
+          <UserHome
+            {...routerProps}
+            user={user}
+            deleteFromTown={deleteVillagerFromTown}
+            deleteBugFromTown={deleteBugFromTown}
+            deleteFishFromTown={deleteFishFromTown}
+          />
+        )}
       />
       <Route
         exact
         path={`${match.url}/villagers`}
         render={(routerProps) => (
-          <VillagersList {...routerProps} villagers={villagers} manageTown={addVillagerToTown} />
+          <VillagersList
+            {...routerProps}
+            villagers={villagers}
+            manageTown={addVillagerToTown}
+          />
         )}
       />
       <Route
         exact
         path={`${match.url}/bugs`}
-        render={(routerProps) => <BugsList {...routerProps} bugs={bugs} manageBugs={addBugToTown} />}
+        render={(routerProps) => (
+          <BugsList {...routerProps} bugs={bugs} manageBugs={addBugToTown} />
+        )}
       />
       <Route
         exact
         path={`${match.url}/fish`}
-        render={(routerProps) => <FishList {...routerProps} fish={fish} />}
+        render={(routerProps) => (
+          <FishList
+            {...routerProps}
+            fish={fish}
+            manageFish={addFishToTown}
+          />
+        )}
       />
     </div>
   );

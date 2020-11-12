@@ -85,7 +85,7 @@ class FishList extends Component {
         <br />
         <div className="ui center aligned grid">
           {fish.map((fish) => (
-            <FishModal fish={fish} key={fish.id} />
+            <FishModal fish={fish} key={fish.id} page={this.props.page} manageFish={this.props.manageFish} />
           ))}
         </div>
       </div>

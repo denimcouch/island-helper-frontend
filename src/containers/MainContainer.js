@@ -81,6 +81,13 @@ class MainContainer extends Component {
           userBugs,
         });
       });
+    fetch("http://localhost:3000/user_fishes")
+      .then((res) => res.json())
+      .then((userFish) => {
+        this.setState({
+          userFish,
+        });
+      });
   }
 
   addVillagerToTown = (object) => {
@@ -182,11 +189,57 @@ class MainContainer extends Component {
     this.setState({
       user: {
         ...this.state.user,
-        bugs: [
-          ...this.state.user.bugs.filter(
-            (bug) => bug.id !== object.id
-          ),
-        ],
+        bugs: [...this.state.user.bugs.filter((bug) => bug.id !== object.id)],
+      },
+    });
+  };
+
+  addFishToTown = (object) => {
+    fetch("http://localhost:3000/user_fishes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_id: this.state.user.id,
+        fish_id: object.id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        this.setState({
+          user: user,
+        });
+        return fetch("http://localhost:3000/user_fishes");
+      })
+      .then((res) => res.json())
+      .then((userFish) => {
+        this.setState({
+          userFish,
+        });
+      });
+  };
+  deleteFishFromTown = (object) => {
+    let fishArray = this.state.userFish.filter((uv) =>
+      uv.fish_id === object.id ? uv : null
+    );
+
+    console.log("fish Array", fishArray);
+
+    let deletedUV = fishArray.filter((element) =>
+      element.user_id === this.state.user.id ? element.id : null
+    )[0].id;
+
+    console.log("Deleted Userfish", deletedUV);
+    fetch(`http://localhost:3000/user_fishes/${deletedUV}`, {
+      method: "DELETE",
+    });
+
+    this.setState({
+      user: {
+        ...this.state.user,
+        fishes: [...this.state.user.fishes.filter((fish) => fish.id !== object.id)],
       },
     });
   };
@@ -206,6 +259,8 @@ class MainContainer extends Component {
           deleteVillagerFromTown={this.deleteVillagerFromTown}
           addBugToTown={this.addBugToTown}
           deleteBugFromTown={this.deleteBugFromTown}
+          addFishToTown={this.addFishToTown}
+          deleteFishFromTown={this.deleteFishFromTown}
         />
       );
     }

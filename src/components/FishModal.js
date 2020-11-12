@@ -1,8 +1,15 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-function FishModal({ fish }) {
+function FishModal(props) {
   const [open, setOpen] = React.useState(false);
+
+  const { fish, manageFish } = props
+
+  const handleClick = () => {
+    manageFish(fish)
+    setOpen(false)
+  }
 
   const months = {
     1: "January",
@@ -81,10 +88,10 @@ function FishModal({ fish }) {
           Close
         </Button>
         <Button
-          content="Add to Island"
+          content={props.page ? "Remove from Island" : "Add to Island"}
           labelPosition="right"
           icon="checkmark"
-          onClick={() => setOpen(false)}
+          onClick={() => handleClick()}
           positive
         />
       </Modal.Actions>
