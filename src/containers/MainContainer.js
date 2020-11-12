@@ -74,6 +74,13 @@ class MainContainer extends Component {
           userVillagers,
         });
       });
+    fetch("http://localhost:3000/user_bugs")
+      .then((res) => res.json())
+      .then((userBugs) => {
+        this.setState({
+          userBugs,
+        });
+      });
   }
 
   addVillagerToTown = (object) => {
@@ -93,7 +100,7 @@ class MainContainer extends Component {
         this.setState({
           user: user,
         });
-        return fetch("http://localhost:3000/user_villagers")
+        return fetch("http://localhost:3000/user_villagers");
       })
       .then((res) => res.json())
       .then((userVillagers) => {
@@ -102,7 +109,6 @@ class MainContainer extends Component {
         });
       });
   };
-
   deleteVillagerFromTown = (object) => {
     let villagerArray = this.state.userVillagers.filter((uv) =>
       uv.villager_id === object.id ? uv : null
@@ -117,15 +123,72 @@ class MainContainer extends Component {
     console.log("Deleted UserVillager", deletedUV);
     fetch(`http://localhost:3000/user_villagers/${deletedUV}`, {
       method: "DELETE",
-    })
-   
+    });
+
     this.setState({
       user: {
         ...this.state.user,
-        villagers: [...this.state.user.villagers.filter(villager => villager.id !== object.id)]
-        
+        villagers: [
+          ...this.state.user.villagers.filter(
+            (villager) => villager.id !== object.id
+          ),
+        ],
       },
+    });
+  };
+
+  addBugToTown = (object) => {
+    fetch("http://localhost:3000/user_bugs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_id: this.state.user.id,
+        bug_id: object.id,
+      }),
     })
+      .then((res) => res.json())
+      .then((user) => {
+        this.setState({
+          user: user,
+        });
+        return fetch("http://localhost:3000/user_bugs");
+      })
+      .then((res) => res.json())
+      .then((userBugs) => {
+        this.setState({
+          userBugs,
+        });
+      });
+  };
+  deleteBugFromTown = (object) => {
+    let bugArray = this.state.userBugs.filter((uv) =>
+      uv.bug_id === object.id ? uv : null
+    );
+
+    console.log("bug Array", bugArray);
+
+    let deletedUV = bugArray.filter((element) =>
+      element.user_id === this.state.user.id ? element.id : null
+    )[0].id;
+
+    console.log("Deleted Userbug", deletedUV);
+    fetch(`http://localhost:3000/user_bugs/${deletedUV}`, {
+      method: "DELETE",
+    });
+
+    this.setState({
+      user: {
+        ...this.state.user,
+        bugs: [
+          ...this.state.user.bugs.filter(
+            (bug) => bug.id !== object.id
+          ),
+        ],
+      },
+    });
   };
 
   showDisplayContainer = () => {
@@ -141,6 +204,8 @@ class MainContainer extends Component {
           match={this.props.match}
           addVillagerToTown={this.addVillagerToTown}
           deleteVillagerFromTown={this.deleteVillagerFromTown}
+          addBugToTown={this.addBugToTown}
+          deleteBugFromTown={this.deleteBugFromTown}
         />
       );
     }

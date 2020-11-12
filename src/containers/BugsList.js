@@ -86,7 +86,7 @@ class BugsList extends Component {
           <br />
           <div className="ui center aligned grid">
             {bugs.map((bug) => (
-              <BugModal bug={bug} key={bug.id} />
+              <BugModal bug={bug} key={bug.id} page={this.props.page} manageBugs={this.props.manageBugs} />
             ))}
           </div>
         </div>
