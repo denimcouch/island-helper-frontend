@@ -236,3 +236,10 @@
   position: absolute;
   top: 580px;
 }
+
+#bgm {
+  background: #58bca9;
+  color: #10997f;
+  border-top: 5px solid #58bca9;
+  border-bottom: 5px solid #58bca9;
+}
