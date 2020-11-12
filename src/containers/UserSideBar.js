@@ -2,6 +2,7 @@ import React from 'react'
 
 const UserSideBar = (props) => {
     let {user} = props
+
     return (
         <div id='user-sidebar' className="section teal">
             <h1 className="acnh-text">{user.name}</h1>

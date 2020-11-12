@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Navbar from "./Navbar";
 import DisplayContainer from "./DisplayContainer";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -12,7 +12,19 @@ class MainContainer extends Component {
     villagers: [],
     fish: [],
     bugs: [],
-    user: [],
+    user: {
+      name: "",
+      email: "",
+      password: "",
+      town_name: "",
+      hemipshere: "",
+      villagers: [],
+      bugs: [],
+      fishes: [],
+    },
+    userVillagers: [],
+    userFish: [],
+    userBugs: [],
   };
 
   componentDidMount() {
@@ -34,31 +46,105 @@ class MainContainer extends Component {
       .then((res) => res.json())
       .then((bugs) => {
         this.setState({
-          bugs
+          bugs,
         });
       });
     fetch(`http://localhost:3000/users/${this.props.name}`)
       .then((res) => res.json())
       .then((user) => {
+        console.log("Component Mounted user", user);
         this.setState({
-          user: user[0],
+          user: {
+            id: user[0].id,
+            name: user[0].name,
+            email: user[0].email,
+            password: user[0].password,
+            town_name: user[0].town_name,
+            hemipshere: user[0].hemisphere,
+            villagers: user[0].villagers,
+            bugs: user[0].bugs,
+            fishes: user[0].fishes,
+          },
+        });
+      });
+    fetch("http://localhost:3000/user_villagers")
+      .then((res) => res.json())
+      .then((userVillagers) => {
+        this.setState({
+          userVillagers,
         });
       });
   }
 
+  addVillagerToTown = (object) => {
+    fetch("http://localhost:3000/user_villagers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_id: this.state.user.id,
+        villager_id: object.id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        this.setState({
+          user: user,
+        });
+        return fetch("http://localhost:3000/user_villagers")
+      })
+      .then((res) => res.json())
+      .then((userVillagers) => {
+        this.setState({
+          userVillagers,
+        });
+      });
+  };
+
+  deleteVillagerFromTown = (object) => {
+    let villagerArray = this.state.userVillagers.filter((uv) =>
+      uv.villager_id === object.id ? uv : null
+    );
+
+    console.log("Villager Array", villagerArray);
+
+    let deletedUV = villagerArray.filter((element) =>
+      element.user_id === this.state.user.id ? element.id : null
+    )[0].id;
+
+    console.log("Deleted UserVillager", deletedUV);
+    fetch(`http://localhost:3000/user_villagers/${deletedUV}`, {
+      method: "DELETE",
+    })
+   
+    this.setState({
+      user: {
+        ...this.state.user,
+        villagers: [...this.state.user.villagers.filter(villager => villager.id !== object.id)]
+        
+      },
+    })
+  };
+
   showDisplayContainer = () => {
-      if (this.state.villagers.length === 0){
-          return null
-      }else{
-          return <DisplayContainer
+    if (this.state.villagers.length === 0) {
+      return null;
+    } else {
+      return (
+        <DisplayContainer
           villagers={this.state.villagers}
           fish={this.state.fish}
           bugs={this.state.bugs}
           user={this.state.user}
           match={this.props.match}
+          addVillagerToTown={this.addVillagerToTown}
+          deleteVillagerFromTown={this.deleteVillagerFromTown}
         />
-      }
-  }
+      );
+    }
+  };
 
   render() {
     return (

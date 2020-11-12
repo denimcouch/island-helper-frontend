@@ -4,13 +4,13 @@ import BugsList from "./BugsList";
 import FishList from "./FishList";
 
 const UserHome = (props) => {
-  let { user } = props;
-  console.log(user.villagers);
+  let { user, deleteFromTown } = props;
+  let villagers = user.villagers
 
   return (
     <div>
       <div>
-        <VillagersList villagers={user.villagers} page="home"/>
+        <VillagersList villagers={villagers} page="home" manageTown={deleteFromTown} />
         <BugsList bugs={user.bugs} page="home"/>
         <FishList fish={user.fishes} page="home"/>
       </div>

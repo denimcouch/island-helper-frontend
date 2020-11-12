@@ -86,7 +86,7 @@ class VillagersList extends Component {
           <br />
           <div className="ui center aligned grid">
             {villagers.map((villager) => (
-              <VillagerModal villager={villager} key={villager.id} />
+              <VillagerModal villager={villager} key={villager.id} manageTown={this.props.manageTown} page={this.props.page} />
             ))}
           </div>
         </div>
