@@ -8,7 +8,7 @@ import UserHome from "./UserHome";
 
 
 const DisplayContainer = (props) => {
-  let { villagers, fish, bugs, user, match, addToTown } = props;
+  let { villagers, fish, bugs, user, match, addToTown, deleteFromTown } = props;
 
 
 
@@ -18,7 +18,7 @@ const DisplayContainer = (props) => {
       <Route
         exact
         path={`${match.url}`}
-        render={(routerProps) => <UserHome {...routerProps} user={user} />}
+        render={(routerProps) => <UserHome {...routerProps} user={user} deleteFromTown={deleteFromTown} />}
       />
       <Route
         exact
