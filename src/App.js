@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import MainContainer from "./containers/MainContainer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LandingPage from "./containers/LandingPage";
+import SunnySong from './audio/54.mp3'
 
 class App extends Component {
   state = {
@@ -34,6 +35,18 @@ class App extends Component {
     });
   };
 
+  // playSong = () => {
+  //   // fetch('https://acnhapi.com/v1/hourly/54')
+  //   // .then(res => res.json())
+  //   // .then(song => {
+  //     return <audio src={song} type="audio/mpeg" autoplay loop/>
+  //   })
+  // }
+
+  componentDidMount(){
+
+  }
+
   render() {
     return (
       <Router>
@@ -54,6 +67,7 @@ class App extends Component {
             path="/home"
             render={(routerProps) => <MainContainer {...routerProps} name={this.state.name} />}
           />
+          <audio id='bgm' src={SunnySong} type="audio/mpeg" volume='0.5' autoPlay loop/>
         </div>
       </Router>
     );
