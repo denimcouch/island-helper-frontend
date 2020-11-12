@@ -88,7 +88,7 @@ function FishModal(props) {
           Close
         </Button>
         <Button
-          content="Add to Island"
+          content={props.page ? "Remove from Island" : "Add to Island"}
           labelPosition="right"
           icon="checkmark"
           onClick={() => handleClick()}

@@ -220,6 +220,29 @@ class MainContainer extends Component {
         });
       });
   };
+  deleteFishFromTown = (object) => {
+    let fishArray = this.state.userFish.filter((uv) =>
+      uv.fish_id === object.id ? uv : null
+    );
+
+    console.log("fish Array", fishArray);
+
+    let deletedUV = fishArray.filter((element) =>
+      element.user_id === this.state.user.id ? element.id : null
+    )[0].id;
+
+    console.log("Deleted Userfish", deletedUV);
+    fetch(`http://localhost:3000/user_fishes/${deletedUV}`, {
+      method: "DELETE",
+    });
+
+    this.setState({
+      user: {
+        ...this.state.user,
+        fishes: [...this.state.user.fishes.filter((fish) => fish.id !== object.id)],
+      },
+    });
+  };
 
   showDisplayContainer = () => {
     if (this.state.villagers.length === 0) {
@@ -237,6 +260,7 @@ class MainContainer extends Component {
           addBugToTown={this.addBugToTown}
           deleteBugFromTown={this.deleteBugFromTown}
           addFishToTown={this.addFishToTown}
+          deleteFishFromTown={this.deleteFishFromTown}
         />
       );
     }

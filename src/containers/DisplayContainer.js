@@ -18,6 +18,7 @@ const DisplayContainer = (props) => {
     addBugToTown,
     deleteBugFromTown,
     addFishToTown,
+    deleteFishFromTown
   } = props;
 
   return (
@@ -32,6 +33,7 @@ const DisplayContainer = (props) => {
             user={user}
             deleteFromTown={deleteVillagerFromTown}
             deleteBugFromTown={deleteBugFromTown}
+            deleteFishFromTown={deleteFishFromTown}
           />
         )}
       />
@@ -60,7 +62,7 @@ const DisplayContainer = (props) => {
           <FishList
             {...routerProps}
             fish={fish}
-            addFishToTown={addFishToTown}
+            manageFish={addFishToTown}
           />
         )}
       />
