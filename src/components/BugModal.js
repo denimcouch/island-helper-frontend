@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-function BugModal({ bug, manageBugs }) {
+function BugModal(props) {
   const [open, setOpen] = React.useState(false);
+  
+  const { bug, manageBugs } = props
 
   const handleClick = () => {
     manageBugs(bug)
@@ -88,7 +90,7 @@ function BugModal({ bug, manageBugs }) {
           Close
         </Button>
         <Button
-          content="Add to Island"
+          content={props.page ? "Remove from Island" : "Add to Island"}
           labelPosition="right"
           icon="checkmark"
           onClick={() => handleClick()}
