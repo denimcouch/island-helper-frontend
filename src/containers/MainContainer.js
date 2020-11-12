@@ -81,6 +81,13 @@ class MainContainer extends Component {
           userBugs,
         });
       });
+    fetch("http://localhost:3000/user_fishes")
+      .then((res) => res.json())
+      .then((userFish) => {
+        this.setState({
+          userFish,
+        });
+      });
   }
 
   addVillagerToTown = (object) => {
@@ -182,13 +189,36 @@ class MainContainer extends Component {
     this.setState({
       user: {
         ...this.state.user,
-        bugs: [
-          ...this.state.user.bugs.filter(
-            (bug) => bug.id !== object.id
-          ),
-        ],
+        bugs: [...this.state.user.bugs.filter((bug) => bug.id !== object.id)],
       },
     });
+  };
+
+  addFishToTown = (object) => {
+    fetch("http://localhost:3000/user_fishes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_id: this.state.user.id,
+        fish_id: object.id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        this.setState({
+          user: user,
+        });
+        return fetch("http://localhost:3000/user_fishes");
+      })
+      .then((res) => res.json())
+      .then((userFish) => {
+        this.setState({
+          userFish,
+        });
+      });
   };
 
   showDisplayContainer = () => {
@@ -206,6 +236,7 @@ class MainContainer extends Component {
           deleteVillagerFromTown={this.deleteVillagerFromTown}
           addBugToTown={this.addBugToTown}
           deleteBugFromTown={this.deleteBugFromTown}
+          addFishToTown={this.addFishToTown}
         />
       );
     }
