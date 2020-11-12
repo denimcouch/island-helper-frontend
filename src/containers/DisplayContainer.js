@@ -8,9 +8,9 @@ import UserHome from "./UserHome";
 
 
 const DisplayContainer = (props) => {
-  let { villagers, fish, bugs, user, match } = props;
+  let { villagers, fish, bugs, user, match, addToTown } = props;
 
-  console.log("Bugs in DisplayContainer", bugs)
+
 
   return (
     <div id="display-container" className="title friend">
@@ -24,7 +24,7 @@ const DisplayContainer = (props) => {
         exact
         path={`${match.url}/villagers`}
         render={(routerProps) => (
-          <VillagersList {...routerProps} villagers={villagers} />
+          <VillagersList {...routerProps} villagers={villagers} manageTown={addToTown} />
         )}
       />
       <Route

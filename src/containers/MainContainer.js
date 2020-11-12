@@ -46,6 +46,29 @@ class MainContainer extends Component {
       });
   }
 
+  addToTown = (object) => {
+    fetch('http://localhost:3000/user_villagers',{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: this.state.user.id,
+        villager_id: object.id
+      })
+    })
+    .then(res => res.json())
+    .then(user => {
+      this.setState({
+        user: user
+      })
+    })
+  }
+  deleteFromTown = (object) => {
+    fetch('http://localhost:3000/user_villagers',{method: "DELETE"})
+  }
+
   showDisplayContainer = () => {
       if (this.state.villagers.length === 0){
           return null
@@ -56,6 +79,7 @@ class MainContainer extends Component {
           bugs={this.state.bugs}
           user={this.state.user}
           match={this.props.match}
+          addToTown={this.addToTown}
         />
       }
   }

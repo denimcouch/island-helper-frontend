@@ -1,8 +1,15 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-function VillagerModal({ villager }) {
+function VillagerModal(props) {
   const [open, setOpen] = React.useState(false);
+
+  const { villager, manageTown } = props
+
+  const handleClick = () => {
+    manageTown(villager)
+    setOpen(false)
+  }
 
   return (
     <Modal
@@ -32,10 +39,10 @@ function VillagerModal({ villager }) {
           Close
         </Button>
         <Button
-          content="Add to Island"
+          content={props.page ? "Remove from Island" : "Add to Island"}
           labelPosition="right"
           icon="checkmark"
-          onClick={() => setOpen(false)}
+          onClick={() => handleClick()}
           positive
         />
       </Modal.Actions>
