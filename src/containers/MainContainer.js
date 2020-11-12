@@ -40,6 +40,7 @@ class MainContainer extends Component {
     fetch(`http://localhost:3000/users/${this.props.name}`)
       .then((res) => res.json())
       .then((user) => {
+        console.log("Component Mounted user",user)
         this.setState({
           user: user[0],
         });

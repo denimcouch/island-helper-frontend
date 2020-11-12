@@ -5,12 +5,13 @@ import FishList from "./FishList";
 
 const UserHome = (props) => {
   let { user } = props;
-  console.log(user.villagers);
+  let villagers = user.user_villagers.map( element => element.villager)
+  console.log("Villagers in UserHome",villagers);
 
   return (
     <div>
       <div>
-        <VillagersList villagers={user.villagers} page="home"/>
+        <VillagersList villagers={villagers} page="home"/>
         <BugsList bugs={user.bugs} page="home"/>
         <FishList fish={user.fishes} page="home"/>
       </div>
