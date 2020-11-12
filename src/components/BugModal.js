@@ -1,10 +1,13 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-function BugModal({ bug }) {
+function BugModal({ bug, manageBugs }) {
   const [open, setOpen] = React.useState(false);
 
-  console.log("available", bug)
+  const handleClick = () => {
+    manageBugs(bug)
+    setOpen(false)
+  }
   
 
   const months = {
@@ -88,7 +91,7 @@ function BugModal({ bug }) {
           content="Add to Island"
           labelPosition="right"
           icon="checkmark"
-          onClick={() => setOpen(false)}
+          onClick={() => handleClick()}
           positive
         />
       </Modal.Actions>
