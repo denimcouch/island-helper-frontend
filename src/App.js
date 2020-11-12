@@ -12,6 +12,7 @@ class App extends Component {
   };
 
   signUpUser = (userObj) => {
+    this.setState({name: userObj.name})
     const userOptions = {
       method: "POST",
       headers: {

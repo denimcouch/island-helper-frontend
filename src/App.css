@@ -1,43 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes scroll {
+  from { background-position: 0 0, 50px 50px, 50px 0; }
+  to { background-position: -100px -100px, -50px -50px, -50px -100px; }
 }
 
 .wrapper {
@@ -54,13 +20,13 @@
   linear-gradient(45deg, transparent, transparent 50%, #FFC87F 50%, #FFC87F);
   background-size: 100px 100px;
   background-position: 0 0, 50px 50px, 50px 0px;
-  -webkit-animation: scroll 5s linear infinite;
+  background-repeat: repeat;
+  animation-name:scroll;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-@-webkit-keyframes scroll {
-  from { background-position: 0 0, 50px 50px, 50px 0; }
-  to { background-position: -100px -100px, -50px -50px, -50px -100px; }
-}
 
 .acnh-text{
   font-family: Nunito;
@@ -203,13 +169,6 @@
   border-radius: 5px;
 }
 
-#user-sidebar {
-  width: 30%;
-  padding: 10px 10px 10px 10px;
-  justify-content: left;
-  position: relative;
-  margin-top: 10px;
-}
 
 .card-container {
   height: 675px;
@@ -221,6 +180,10 @@
   position: relative;
   top: -320px;
   
+}
+
+.column{
+  text-align: center;
 }
 
 #header-title{
@@ -242,4 +205,12 @@
   color: #10997f;
   border-top: 5px solid #58bca9;
   border-bottom: 5px solid #58bca9;
+}
+
+#user-sidebar {
+  width: 30%;
+  padding: 10px 10px 10px 10px;
+  justify-content: left;
+  position: relative;
+  margin-top: 10px;
 }

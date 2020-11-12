@@ -9,9 +9,13 @@ const UserHome = (props) => {
 
   return (
     <div>
-      <div>
+      <div id="user-villager-container">
         <VillagersList villagers={villagers} page="home" manageTown={deleteFromTown} />
+      </div>
+      <div id="user-bug-container">
         <BugsList bugs={user.bugs} page="home" manageBugs={deleteBugFromTown} />
+      </div>   
+      <div id="user-fish-container">
         <FishList fish={user.fishes} page="home" manageFish={deleteFishFromTown} />
       </div>
     </div>
