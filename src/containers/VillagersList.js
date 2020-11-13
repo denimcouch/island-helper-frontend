@@ -17,7 +17,7 @@ class VillagersList extends Component {
     });
   };
   searchVillagers = () => {
-    let sortedVillagers = this.sortVillagers()
+    let sortedVillagers = this.sortVillagers();
     return sortedVillagers.filter((villager) =>
       villager.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     );
@@ -36,22 +36,26 @@ class VillagersList extends Component {
   };
   handleGenderFilter = (filterWord) => {
     this.setState({
-      genderFilter: filterWord
-    })
-  }
+      genderFilter: filterWord,
+    });
+  };
 
   handleSort = (sortWord) => {
-    sortWord ? this.setState({sortTerm: "Alphabetically"}) : this.setState({sortTerm: ''})
-  }
+    sortWord
+      ? this.setState({ sortTerm: "Alphabetically" })
+      : this.setState({ sortTerm: "" });
+  };
   sortVillagers = () => {
-    switch (this.state.sortTerm){
+    switch (this.state.sortTerm) {
       case "Alphabetically":
-        return this.props.villagers.sort((a,b) => a.name.localeCompare(b.name));
+        return this.props.villagers.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
         break;
       default:
-        return this.props.villagers.sort((a,b) => a.id - b.id )
+        return this.props.villagers.sort((a, b) => a.id - b.id);
     }
-  }
+  };
 
   villagerSpecies = () => {
     let speciesArray = [];
@@ -78,7 +82,7 @@ class VillagersList extends Component {
         villager.species.includes(this.state.speciesFilter) &&
         villager.personality.includes(this.state.personalityFilter) &&
         villager.gender.includes(this.state.genderFilter)
-    )
+    );
     return (
       <>
         <div className="card-container section teal">
@@ -86,22 +90,28 @@ class VillagersList extends Component {
           <br />
           <div className="ui center aligned grid">
             {villagers.map((villager) => (
-              <VillagerModal villager={villager} key={villager.id} manageTown={this.props.manageTown} page={this.props.page} />
+              <VillagerModal
+                villager={villager}
+                key={villager.id}
+                manageTown={this.props.manageTown}
+                page={this.props.page}
+              />
             ))}
           </div>
         </div>
-      {this.props.page === 'home' ? null : 
-        <div className="search-bar section teal acnh-text">
-          <VillagerSearchBar
-            personalities={this.villagerPersonalities()}
-            species={this.villagerSpecies()}
-            handleSearch={this.handleSearch}
-            handleSpeciesFilter={this.handleSpeciesFilter}
-            handlePersonalityFilter={this.handlePersonalityFilter}
-            handleGenderFilter={this.handleGenderFilter}
-            handleSort={this.handleSort}
-          />
-        </div> }
+        {this.props.page === "home" ? null : (
+          <div className="search-bar section teal acnh-text">
+            <VillagerSearchBar
+              personalities={this.villagerPersonalities()}
+              species={this.villagerSpecies()}
+              handleSearch={this.handleSearch}
+              handleSpeciesFilter={this.handleSpeciesFilter}
+              handlePersonalityFilter={this.handlePersonalityFilter}
+              handleGenderFilter={this.handleGenderFilter}
+              handleSort={this.handleSort}
+            />
+          </div>
+        )}
       </>
     );
   }

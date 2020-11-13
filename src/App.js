@@ -12,6 +12,7 @@ class App extends Component {
   };
 
   signUpUser = (userObj) => {
+    this.setState({name: userObj.name})
     const userOptions = {
       method: "POST",
       headers: {
@@ -50,7 +51,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App wrapper">
+        <div className="wrapper">
           <Header />
           <Route
             exact

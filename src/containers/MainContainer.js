@@ -13,6 +13,7 @@ class MainContainer extends Component {
     fish: [],
     bugs: [],
     user: {
+      id: 1,
       name: "",
       email: "",
       password: "",
@@ -60,7 +61,7 @@ class MainContainer extends Component {
             email: user[0].email,
             password: user[0].password,
             town_name: user[0].town_name,
-            hemipshere: user[0].hemisphere,
+            hemisphere: user[0].hemisphere,
             villagers: user[0].villagers,
             bugs: user[0].bugs,
             fishes: user[0].fishes,

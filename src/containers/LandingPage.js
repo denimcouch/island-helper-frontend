@@ -23,7 +23,7 @@ class LandingPage extends Component {
     <Segment className="acnh-text" placeholder>
       <Grid columns={2} relaxed="very" stackable>
         <Grid.Column>
-          <h1>Login</h1>
+          <h1 className="landing-page-title" >Login</h1>
           <Form>
             <Form.Input
               icon="user"
@@ -49,7 +49,7 @@ class LandingPage extends Component {
         </Grid.Column>
 
         <Grid.Column id="sign-up-column" verticalAlign="middle">
-          <h1>Sign-Up</h1>
+          <h1 className="landing-page-title" >Sign-Up</h1>
           <Form className="acnh-text">
             <Form.Field>
               <label>Name</label>
