@@ -57,7 +57,7 @@ class App extends Component {
             path="/home"
             render={(routerProps) => <MainContainer {...routerProps} name={this.state.name} />}
           />
-          <audio id='bgm' src={MainTheme} type="audio/mpeg" volume='0.5' autoPlay controls loop/>
+          <audio id="bgm-player" src={MainTheme} type="audio/mpeg" volume='0.5' autoPlay controls loop/>
         </div>
       </Router>
     );

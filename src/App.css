@@ -229,3 +229,7 @@
   position: relative;
   margin-top: 10px;
 }
+
+#bgm-player {
+  margin-left: 35%;
+}
