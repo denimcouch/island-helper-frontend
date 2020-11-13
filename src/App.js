@@ -51,7 +51,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App wrapper">
+        <div className="wrapper">
           <Header />
           <Route
             exact

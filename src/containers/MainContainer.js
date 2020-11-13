@@ -13,7 +13,7 @@ class MainContainer extends Component {
     fish: [],
     bugs: [],
     user: {
-      id: null,
+      id: 1,
       name: "",
       email: "",
       password: "",
